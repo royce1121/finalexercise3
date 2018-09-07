@@ -11,7 +11,14 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def list(request):
-	return render(request, 'exer3/login_view.html', {})
+	check = Section.objects.all()
+	if check.exists():
+		return render(request, 'exer3/login_view.html', {})
+	else:
+		soft = Section.objects.create(name='Software')
+		hard = Section.objects.create(name='Hardware')
+		net = Section.objects.create(name='Networking')
+		return render(request, 'exer3/login_view.html', {})
 
 #user authentication
 def login_view(request):
