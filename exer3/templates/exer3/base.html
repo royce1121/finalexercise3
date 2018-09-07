@@ -1,0 +1,36 @@
+{% load static %}
+<html>
+    <head>
+        <title>Exercise3</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    </head>
+    <body>
+    <div class="page-header">  
+        {% if user.is_authenticated %}
+        <div class="topnav">
+        <a class="{% if request.resolver_match.url_name == 'list' %}active{% endif %}" href="{% url 'list' %}">Exercise3</a>
+        <a class="{% if request.resolver_match.url_name == 'profile' %}active{% endif %}" href="{% url 'profile' %}">Profile</a>
+        <a class="{% if request.resolver_match.url_name == 'student' %}active{% endif %}" href="{% url 'student' %}">Record</a>
+        <a class="{% if request.resolver_match.url_name == 'software' %}active{% endif %}" href="{% url 'software' %}">Student</a>
+        </div>
+        {% else %}
+        <div class="links">
+        <h1 style="text-align: center;"><a href="{% url 'list' %}">Exercise3</a></h1>   
+        </div>
+        {% endif %}
+    </div>
+    <div class="bgimage content container">
+        <div class="row">
+            <div class="col-md-12">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

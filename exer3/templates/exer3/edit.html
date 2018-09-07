@@ -1,0 +1,21 @@
+{% extends 'exer3/base.html' %}
+
+{% block content %}
+<h1 style="text-align: center;">Edit Student</h1>   
+<div class="container">
+    <div class="row profile">
+    	<div class="col-md-3">
+		</div>
+		<div class="col-md-6">
+		<form class="center" action="{% url 'edit1' pk=edit1.pk %}" method="POST">
+			{% csrf_token %}
+    		{{ form.as_p }}
+    		<input class="btn2" type="submit" value="UPDATE" />
+		</form>
+		</div>
+		<div class="col-md-3">
+		</div>
+	</div>
+</div>
+
+{% endblock %}

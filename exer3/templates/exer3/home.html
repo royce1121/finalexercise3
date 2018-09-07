@@ -1,0 +1,14 @@
+{% extends 'exer3/base.html' %}
+
+{% block content %}
+
+<form method="post" action="{% url 'login' %}" style="text-align:center;">
+    <button class="btn1" type="submit">Login</button>
+    </div>
+    <br>
+    <span class="psw">No Account Yet?<a href="{% url 'signup' %}">Create an account</a></span>
+  </div>
+</form>
+{% endif %}
+
+{% endblock %}

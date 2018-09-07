@@ -1,0 +1,21 @@
+{% extends 'exer3/base.html' %}
+
+{% block content %}
+<h1 style="text-align: center;">Add Student</h1>   
+<div class="container">
+    <div class="row profile">
+    	<div class="col-md-3">
+		</div>
+		<div class="col-md-6">
+		<form class="center" action="{% url 'add1' %}" method="POST">
+			{% csrf_token %}
+    		{{ form.as_p }}
+    		<input class="btn2" type="submit" value="ADD" />
+		</form>
+		</div>
+		<div class="col-md-3">
+		</div>
+	</div>
+</div>
+
+{% endblock %}

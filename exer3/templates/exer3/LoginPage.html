@@ -1,0 +1,22 @@
+{% extends 'exer3/base.html' %}
+
+{% block content %}
+<form method="post" action="{% url 'create' %}" style="text-align: center;">
+    {% csrf_token %}
+    <label ><b>Create Account</b></label>
+  <div class="container">
+    <input type="text" placeholder="Enter Username" id="user" name="user" required>
+    <br>
+    <input type="text" placeholder="Enter Email" id="mail" name="mail" required>
+    <br>
+    <input type="password" placeholder="Enter Password" id="pass" name="pass" required>
+    <br>
+    <input type="text" placeholder="First Name" id="fname" name="fname" required>
+    <br>
+    <input type="text" placeholder="Last Name" id="lname" name="lname" required>
+    <br>
+    <button class="btn1" type="submit">Create</button>
+  </div>
+</form>
+{% endblock content %}
+

@@ -1,0 +1,40 @@
+{% extends 'exer3/base.html' %}
+
+{% block content %}
+
+<h1 style="text-align: center;">List of Students</h1>   
+<div class="container">
+    <div class="row profile">
+    	<div class="col-md-1">
+		</div>
+		<div class="col-md-3">
+		<form action="{% url 'search1' %}" method="post">
+		{% csrf_token %}
+    		<input class="btn3" type="text" placeholder="Search" id="srch" name="srch" required>
+    		<input class="btn3" type="submit" value="SEARCH" />
+		</form>
+		<form action="{% url 'add2' %}" method="post">
+		{% csrf_token %}
+    		<input class="btn2" type="submit" value="ADD" />
+		</form>
+		
+		
+		</div>
+		<div class="col-md-6">
+			{% if error_message %}
+			<p>{{error_message}}</p>
+			{% endif %}
+	<table>
+		{% for post in first %}
+		<tr>
+		<td>Name:</td>
+        <td>{{post.name}}</td>
+		<td><a class="btn btn-default" href="{% url 'remove1' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a></td>
+		</tr>
+        {% endfor %}
+	</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
