@@ -273,10 +273,10 @@ def edit1(request, pk):
 			form = SearchForm()
 			return render(request, 'exer3/student.html', {'sect': sect , 'error_message':"Error, Object missing or already deleted."})
 
-#@login_required
-#def new(request):
-#    form = NameForm()
-#    return render(request, 'exer3/new.html', {'form': form})
+@login_required
+def new(request):
+    form = NameForm()
+    return render(request, 'exer3/new.html', {'form': form})
 
 
 #def server_error(request):
